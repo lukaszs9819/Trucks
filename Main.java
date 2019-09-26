@@ -39,13 +39,40 @@ public class Main {
                         if(secoundQueue.size()>0) {
                             for (Truck item : secoundQueue) {
                                 item.timePass();
-
                             }
                             lengthQueue2--;
                             if (secoundQueue.peek().getTimeToLeave() == 0) {
                                 secoundQueue.remove();
                             }
                         }
+                        /*
+                        int length;
+                        if(firstQueue.size()>secoundQueue.size())
+                            length = secoundQueue.size();
+                        else
+                            length = firstQueue.size();
+                        if(length>2) {
+                            for(int i=0 ; i< length;i++) {
+                                int counter = 0;
+                                int counter1 = 0;
+                                for (Truck item : firstQueue) {
+                                    if (counter == i && i>2) {
+                                        for(Truck item1 :secoundQueue){
+                                            if (counter1 == i)
+                                            {
+                                                if(item.getWeight()>item1.getWeight() && item1.getTimeToLeave()-item1.getWeight()>item.getTimeToLeave()-item.getWeight()){
+                                                    Truck pom = item;
+                                                    item=item1;
+                                                    item1=pom;
+                                                }
+                                            }
+                                            counter1++;
+                                        }
+                                    }
+                                    counter++;
+                                }
+                            }
+                        }*/ //To miała być zamiana wyrazów do momentu gdy się zorientowałem że jednak się nie da XD
                     }
 
                         System.out.println("Enter weight of truck: ");
@@ -61,6 +88,7 @@ public class Main {
                             lengthQueue1 += weight;
                             firstQueue.add(pom);
                         }
+                        System.out.println("ID Number: " + pom.getTruckID());
                         interval = 0;
                     }
                     else{
@@ -99,7 +127,33 @@ public class Main {
                             secoundQueue.remove();
                         }
                     }
-
+                    int length;
+                   /* if(firstQueue.size()>secoundQueue.size())
+                         length = secoundQueue.size();
+                    else
+                        length = firstQueue.size();
+                    if(length>2) {
+                        for(int i=0 ; i< length;i++) {
+                            int counter = 0;
+                            int counter1 = 0;
+                            for (Truck item : firstQueue) {
+                                if (counter == i && i>2) {
+                                    for(Truck item1 :secoundQueue){
+                                        if (counter1 == i)
+                                        {
+                                          if(item.getWeight()>item1.getWeight() && item1.getTimeToLeave()-item1.getWeight()>item.getTimeToLeave()-item.getWeight()){
+                                              Truck pom = item;
+                                              item=item1;
+                                              item1=pom;
+                                          }
+                                        }
+                                        counter1++;
+                                    }
+                                }
+                                counter++;
+                            }
+                        }
+                    }*/ //To miała być zamiana wyrazów do momentu gdy się zorientowałem że jednak się nie da XD
                     if (interval==3 && firstQueue.size()+secoundQueue.size()<12)
                     {
                         System.out.println("Time passed, new truck arrive!\nEnter weight of truck: ");
@@ -116,6 +170,7 @@ public class Main {
                             lengthQueue1 += weight;
                             firstQueue.add(pom);
                         }
+                        System.out.println("ID Number: " + pom.getTruckID());
                         interval = 0;
                     }
                     break;

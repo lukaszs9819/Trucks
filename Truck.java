@@ -10,7 +10,7 @@ public class Truck  {
     private int timeToLeave;
 
     public Truck(int enteredWeight, int time){
-        truckID=time/3;
+        truckID=Math.round(time/3);
         weight=enteredWeight;
         waitingTime=0;
     }
